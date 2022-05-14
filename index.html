@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <title>JS_console</title>
+    <title>JS_console - first</title>
 </head>
 
 <style>
@@ -32,6 +31,7 @@
         height: fit-content;
         flex-direction: column;
         align-items: center;
+        padding: 30px;
     }
     
     .js_logo {
@@ -92,6 +92,31 @@
     #jsinput:focus {
         outline: none;
     }
+    
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+        font-weight: 700;
+        border: black 1px solid;
+        padding: 7px 20px;
+        margin-top: 30px;
+        border-radius: 10px;
+        transition: ease-in-out 0.1s;
+    }
+    
+    a:hover {
+        background: black;
+        color: #f7df1e;
+    }
+    
+    .maker {
+        font-size: 15px;
+        font-weight: 300;
+        margin: 0;
+        padding-top: 30px;
+        border-top: black 1px solid;
+    }
 </style>
 
 <body>
@@ -112,21 +137,26 @@
             </tr>
         </table>
 
+        <a href="./second.html">go to improved</a>
+
     </div>
 
+    <p class="maker">made by choi2j, 2022</p>
 </body>
 
-<script>
+<script type="text/javascript">
     function output() {
         let input = document.getElementById('jsinput').value;
-        let a = 2;
+        let i;
 
-        if (input == a) {
-            document.getElementById("output").innerText = input + a;
-        } else {
-            document.getElementById("output").innerText = input;
+        for (i = 0; i < 10; i++) {
+            input += i;
         }
+
+        document.getElementById("output").innerText = input;
     }
 </script>
 
 </html>
+
+<!--document.getElementById("output").innerText = input;-->
