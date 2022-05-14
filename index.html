@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>JS_console</title>
+</head>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background: #f7df1e;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    .container {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .js_logo {
+        display: flex;
+        color: black;
+        font-size: 200px;
+        font-weight: 900;
+        margin: 0;
+    }
+    
+    .caption {
+        display: flex;
+        color: black;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    table {
+        display: flex;
+        border-spacing: 0;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 4px;
+    }
+    
+    tr {
+        background-color: rgb(33, 33, 33);
+        color: white;
+        text-align: center;
+        height: 30px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: rgb(55, 55, 55);
+    }
+    
+    .outputTh {
+        width: 500px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    #output {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    #jsinput {
+        border: none;
+        background: transparent;
+        border-bottom: black 1px solid;
+        padding: 5px 30px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 500;
+    }
+    
+    #jsinput:focus {
+        outline: none;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+        <p class="js_logo">JS</p>
+        <p class="caption">JS Console Input</p>
+        <input type="text" id="jsinput" onchange="output()">
+
+        <p class="caption">JS Console Output</p>
+        <table>
+            <tr>
+                <th class="outputTh">output</th>
+            </tr>
+            <tr>
+                <td id="output">example01</td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+<script>
+    function output() {
+        let input = document.getElementById('jsinput').value;
+        let a = 2;
+
+        if (input == a) {
+            document.getElementById("output").innerText = input + a;
+        } else {
+            document.getElementById("output").innerText = input;
+        }
+    }
+</script>
+
+</html>
