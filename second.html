@@ -131,7 +131,7 @@
     <div class="container">
         <p class="js_logo">JS</p>
         <p class="captions">JS input</p>
-        <input type="text" class="input" id="input-text" placeholder="input here" onchange="postTd()">
+        <input type="text" class="input" id="input-text" placeholder="only text" onchange="postTd()">
         <p class="captions">JS output</p>
         <div class="table_div">
             <table>
@@ -151,11 +151,53 @@
 </body>
 
 <script type="text/javascript">
+    function arrayToAscii(input) {
+        let arr = input.split("");
+        for (let i = 0; i < arr.legnth; i++) {
+            arr[i] = arr[i].charCodeAt(0);
+        }
+        return arr;
+    }
+
+    /*function bubbleSort(arr) {
+        for (let i = 0; i < arr.legnth; i++) {
+            let temp;
+            if (arr[i] > arr[i + 1]) {
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+        for (let i = 0; i < arr.legnth; i++) {
+            arr[i] = arr[i].fromCharCode(0);
+        }
+        let result = arr.join('');
+        return result;
+    }
+    */
+
     function postTd() {
         let input = document.getElementById('input-text').value;
         document.getElementById("input-td").innerText = input;
 
         //output fuctions
+        if (input == '') {
+            input = '';
+        } else if (input == 'hello') {
+            //easterEgg
+            input = 'world';
+        } else {
+            var arr = input.split("");
+            arr.sort();
+            console.log(arr);
+            input = arr.join("");
+            //bubble sort
+            /*arrayToAscii(input);
+            bubbleSort(arr);
+            document.getElementById("output-td").innerText = result;
+            console.log(result);
+            */
+        }
 
         document.getElementById("output-td").innerText = input;
         console.log(input);
