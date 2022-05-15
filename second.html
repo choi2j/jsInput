@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
-    <title>JS_console - second</title>
+    <title>JavaScript - Sort</title>
 </head>
 
 <style>
@@ -145,30 +145,31 @@
 </body>
 
 <script type="text/javascript">
-    function arrayToAscii(input) {
-        let arr = input.split("");
-        for (let i = 0; i < arr.legnth; i++) {
-            arr[i] = arr[i].charCodeAt(0);
-        }
-        return arr;
-    }
-
-    /*function bubbleSort(arr) {
-        for (let i = 0; i < arr.legnth; i++) {
-            let temp;
-            if (arr[i] > arr[i + 1]) {
-                temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
+    /*
+        function arrayToAscii(input) {
+            let arr = input.split("");
+            for (let i = 0; i < arr.legnth; i++) {
+                arr[i] = arr[i].charCodeAt(0);
             }
+            return arr;
         }
-        for (let i = 0; i < arr.legnth; i++) {
-            arr[i] = arr[i].fromCharCode(0);
+
+        function bubbleSort(arr) {
+            for (let i = 0; i < arr.legnth; i++) {
+                let temp;
+                if (arr[i] > arr[i + 1]) {
+                    temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                }
+            }
+            for (let i = 0; i < arr.legnth; i++) {
+                arr[i] = arr[i].fromCharCode(0);
+            }
+            let result = arr.join('');
+            return result;
         }
-        let result = arr.join('');
-        return result;
-    }
-    */
+        */
 
     function postTd() {
         let input = document.getElementById('input-text').value;
