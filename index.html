@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <title>JS_console - first</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+    <title>JavaScript - Sort</title>
 </head>
 
 <style>
+    @media (max-width:600px) {
+        * {
+            font-size: 0.9em;
+        }
+    }
+    
     * {
         font-family: 'pretendard';
     }
@@ -23,6 +30,7 @@
         align-items: center;
         justify-content: center;
         height: 100%;
+        color: black;
     }
     
     .container {
@@ -31,72 +39,53 @@
         height: fit-content;
         flex-direction: column;
         align-items: center;
-        padding: 30px;
+        margin-bottom: 2em;
     }
     
     .js_logo {
         display: flex;
         color: black;
-        font-size: 200px;
+        font-size: 12em;
         font-weight: 900;
         margin: 0;
     }
     
-    .caption {
-        display: flex;
-        color: black;
-        font-size: 20px;
-        font-weight: 600;
-        margin: 0;
+    .captions {
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+    
+    .table_div {
+        border-radius: 10px;
     }
     
     table {
-        display: flex;
+        color: white;
+        font-size: 1em;
+        text-align: center;
         border-spacing: 0;
         border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 4px;
+        overflow: hidden;
     }
     
     tr {
-        background-color: rgb(33, 33, 33);
-        color: white;
-        text-align: center;
-        height: 30px;
+        background: rgb(33, 33, 33);
     }
     
     tr:nth-child(even) {
         background-color: rgb(55, 55, 55);
     }
     
-    .outputTh {
-        width: 500px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-    
-    #output {
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-    
-    #jsinput {
-        border: none;
-        background: transparent;
-        border-bottom: black 1px solid;
-        padding: 5px 30px;
-        margin-bottom: 20px;
-        text-align: center;
-        font-weight: 500;
-    }
-    
-    #jsinput:focus {
-        outline: none;
+    th,
+    td {
+        padding: 0px 6em;
+        height: 3em;
     }
     
     a {
         text-decoration: none;
         color: black;
-        font-size: 15px;
+        font-size: 1em;
         font-weight: 700;
         border: black 1px solid;
         padding: 7px 20px;
@@ -111,52 +100,104 @@
     }
     
     .maker {
-        font-size: 15px;
+        font-size: 1em;
         font-weight: 300;
         margin: 0;
-        padding-top: 30px;
+        padding-top: 2em;
         border-top: black 1px solid;
+    }
+    
+    .input {
+        text-align: center;
+        border: none;
+        background: transparent;
+        padding: 2px 1em;
+        border-bottom: black 1px solid;
+        font-size: 1em;
+    }
+    
+    .input:focus {
+        outline: none;
     }
 </style>
 
 <body>
-
     <div class="container">
-
         <p class="js_logo">JS</p>
-        <p class="caption">JS Console Input</p>
-        <input type="text" id="jsinput" onchange="output()" placeholder="input here">
-
-        <p class="caption">JS Console Output</p>
-        <table>
-            <tr>
-                <th class="outputTh">output</th>
-            </tr>
-            <tr>
-                <td id="output">example01</td>
-            </tr>
-        </table>
-
-        <a href="./second.html">go to improved</a>
-
+        <p class="captions">JS input</p>
+        <input type="text" class="input" id="input-text" placeholder="only english text" onchange="postTd()">
+        <p class="captions">JS output</p>
+        <div class="table_div">
+            <table>
+                <tr>
+                    <th>Input</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td id="input-td"></td>
+                    <td id="output-td"></td>
+                </tr>
+            </table>
+        </div>
+        <a href="./index.html">go back</a>
     </div>
-
     <p class="maker">made by choi2j, 2022</p>
 </body>
 
 <script type="text/javascript">
-    function output() {
-        let input = document.getElementById('jsinput').value;
-        let i;
-
-        for (i = 0; i < 10; i++) {
-            input += i;
+    /*
+        function arrayToAscii(input) {
+            let arr = input.split("");
+            for (let i = 0; i < arr.legnth; i++) {
+                arr[i] = arr[i].charCodeAt(0);
+            }
+            return arr;
         }
 
-        document.getElementById("output").innerText = input;
+        function bubbleSort(arr) {
+            for (let i = 0; i < arr.legnth; i++) {
+                let temp;
+                if (arr[i] > arr[i + 1]) {
+                    temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                }
+            }
+            for (let i = 0; i < arr.legnth; i++) {
+                arr[i] = arr[i].fromCharCode(0);
+            }
+            let result = arr.join('');
+            return result;
+        }
+        */
+
+    function postTd() {
+        let input = document.getElementById('input-text').value;
+        document.getElementById("input-td").innerText = input;
+
+        //output fuctions
+        if (input == '') {
+            input = '';
+        } else if (input == 'hello') {
+            //easterEgg
+            input = 'world';
+        } else {
+            var arr = input.split("");
+            arr.sort();
+            console.log(arr);
+            input = arr.join("");
+            //bubble sort
+            /*arrayToAscii(input);
+            bubbleSort(arr);
+            document.getElementById("output-td").innerText = result;
+            console.log(result);
+            */
+        }
+
+        document.getElementById("output-td").innerText = input;
+        console.log(input);
+
     }
 </script>
 
 </html>
-
-<!--document.getElementById("output").innerText = input;-->
