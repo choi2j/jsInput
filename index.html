@@ -5,52 +5,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Study Index</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+    <link rel="stylesheet" href="./js01.css">
+    <title>JavaScript - Sort</title>
 </head>
-
-<style>
-    .js {
-        display: flex;
-        padding: 10px;
-        background: #f7df1e;
-        color: black;
-        font-size: 40px;
-        font-weight: 900;
-        height: 1.8em;
-        width: 1.8em;
-        align-items: flex-end;
-        justify-content: flex-end;
-        line-height: 25px;
-    }
-    
-    .ts {
-        display: flex;
-        padding: 0;
-        background: #3077C6;
-        color: white;
-        font-size: 40px;
-        font-weight: 900;
-        height: 2em;
-        width: 2em;
-        text-align: right;
-        vertical-align: middle;
-    }
-</style>
 
 <body>
     <div class="container">
-        <p class="logo">Language</p>
-        <div class="index">
-            <p class="js">JS</p>
-            <p class="description"></p>
-            <a href="./js01.html"></a>
+        <p class="js_logo">JS</p>
+        <p class="captions">JS input</p>
+        <input type="text" class="input" id="input-text" placeholder="only english text" onchange="postTd()">
+        <p class="captions">JS output</p>
+        <div class="table_div">
+            <table>
+                <tr>
+                    <th>Input</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td id="input-td"></td>
+                    <td id="output-td"></td>
+                </tr>
+            </table>
         </div>
-        <div class="index">
-            <p class="ts">TS</p>
-            <p class="description"></p>
-            <a href="./ts01.html"></a>
-        </div>
+        <a href="../index.html">go back</a>
     </div>
+    <p class="maker">made by choi2j, 2022</p>
 </body>
+
+<script type="text/javascript">
+    /*
+                                        function arrayToAscii(input) {
+                                            let arr = input.split("");
+                                            for (let i = 0; i < arr.legnth; i++) {
+                                                arr[i] = arr[i].charCodeAt(0);
+                                            }
+                                            return arr;
+                                        }
+                                        */
+    /*
+     function bubbleSort(arr) {
+         for (let i = 0; i < arr.legnth; i++) {
+             let temp;
+             if (arr[i] > arr[i + 1]) {
+                 temp = arr[i];
+                 arr[i] = arr[i + 1];
+                 arr[i + 1] = temp;
+             }
+         }
+         for (let i = 0; i < arr.legnth; i++) {
+             arr[i] = arr[i].fromCharCode(0);
+         }
+         let result = arr.join('');
+         return result;
+     }*/
+
+
+    function postTd() {
+        let input = document.getElementById('input-text').value;
+        document.getElementById("input-td").innerText = input;
+
+        //output fuctions
+        if (input == '') {
+            input = '';
+        } else if (input == 'hello') {
+            //easterEgg
+            input = 'world';
+        } else {
+            var arr = input.split("");
+            arr.sort();
+            console.log(arr);
+            input = arr.join("");
+            /*//bubble sort
+                   arrayToAscii(input);
+                   bubbleSort(arr);
+                   document.getElementById("output-td").innerText = result;
+                   console.log(result);*/
+        }
+
+        document.getElementById("output-td").innerText = input;
+        console.log(input);
+    }
+</script>
 
 </html>
